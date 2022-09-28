@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <title>DebolsilloColombia</title>
+</head>
+
+<body>
+<div class="px-4 py-4 mx-5 my-5 text-center">
+    <img src="img/descarga.png" class="d-block mx-auto my-auto mb-4" height="200" alt="bolsillo">
+    <h1 class="display-5 fw-bold">debolsillocolombia</h1>
+    <p>Administra tu Empresa y Empleados</p>
+
+    <div sec:authorize="!isAuthenticated()">
+        <a th:href="@{/oauth2/authorization/auth0}" type="button" class="btn btn-primary btn-lg px-5 gap-3">ingresar</a>
+    </div>
+
+
+    <div sec:authorize="isAuthenticated()">
+        <a href="/empleados" class="my-3 btn btn-primary btn-lg px-5 gap-3">empleados</a>
+        <a href="/empresas" class="my-3 btn btn-primary btn-lg px-5 gap-3">empresas</a>
+
+    </div>
+
+</div>
+
+
+</div>
+
+
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>
